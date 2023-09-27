@@ -2,10 +2,10 @@
  *  Script to use WebSocket with kraken depth 100 endpoint to retrieve any amount of order book level price and 
  *  volume data between levels 1 and 100.
 
- *  Fetches number of levels stored in config.binance.numLevel and stores price and volume for every level up to the level 
- *  stored in config.binance.numLevel in a Clickhouse database, labelled with their associated level and a timestamp.
+ *  Fetches number of levels stored in config.kraken.numLevel and stores price and volume for every level up to the level 
+ *  stored in config.kraken.numLevel in a Clickhouse database, labelled with their associated level and a timestamp.
  *   
- *  Once the script reaches the level stored in config.binance.numLevel it stops. It waits for an update from the Websocket
+ *  Once the script reaches the level stored in config.kraken.numLevel it stops. It waits for an update from the Websocket
  *  and when an update is received the order book is adjusted correctly and the new local order book is stored in the database.
  *  
  *  Local orderbook maintenance logic is contained inside handleOrderBook() which is inserted in ws.on 'message' so it's ran
